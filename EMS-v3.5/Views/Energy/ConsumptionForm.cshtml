@@ -1,0 +1,97 @@
+﻿@model EMS_v2._2.Models.EnergyConsumption
+
+<div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="card shadow p-4" style="width: 400px; border-radius: 10px;">
+        <h3 class="text-center mb-4">@ViewData["Title"]</h3>
+
+        <!-- Show errors if they exist -->
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                <ul class="mb-0">
+                    @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                    {
+                        <li>@error.ErrorMessage</li>
+                    }
+                </ul>
+            </div>
+        }
+
+        <!-- Add/Modify Consumption Form - Reusable and flexible for different use cases -->
+        @using (Html.BeginForm(ViewData["Action"]?.ToString() ?? "AddConsumption", "Energy", FormMethod.Post))
+        {
+            <input type="hidden" id="BuildingType" name="BuildingType" value="@Model.BuildingType" />
+
+            <div class="mb-3">
+                <label class="form-label" for="Date">Date</label>
+                <input type="date" class="form-control" id="Date" name="Date" value="@Model?.Date.ToString("yyyy-MM-dd")" required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="EnergyUsed">Consumption (kWh)</label>
+                <input type="number" step="0.1" class="form-control" id="EnergyUsed" name="EnergyUsed" value="@Model?.EnergyUsed" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="Location">Location</label>
+                <input type="text" class="form-control" id="Location" name="Location" value="@Model?.Location" required />
+            </div>
+
+            <!-- Additional fields for residential buildings -->
+            <div id="residentialFields" class="conditional-fields" style="display: none;">
+                <div class="mb-3">
+                    <label class="form-label" for="RoomCount">Number of rooms</label>
+                    <input type="number" class="form-control" id="RoomCount" name="RoomCount" value="@Model?.RoomCount" />
+                </div>
+                <div class="mb-3">
+                    <label for="PersonCount" class="form-label">Number of people</label>
+                    <input type="number" class="form-control" id="PersonCount" name="PersonCount" value="@Model?.PersonCount" />
+                </div>
+                <div class="mb-3">
+                    <label for="ApplianceCount" class="form-label">Number of devices</label>
+                    <input type="number" class="form-control" id="ApplianceCount" name="ApplianceCount" value="@Model?.ApplianceCount" />
+                </div>
+            </div>
+
+            <!-- Additional fields for industrial buildings -->
+            <div id="industrialFields" class="conditional-fields" style="display: none;">
+                <div class="mb-3">
+                    <label for="MachineCount" class="form-label">Number of machines</label>
+                    <input type="number" class="form-control" id="MachineCount" name="MachineCount" value="@Model?.MachineCount" />
+                </div>
+            </div>
+
+            <!-- Save button -->
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary w-100">Save</button>
+            </div>
+        }
+
+        <!-- The delete button only appears when editing -->
+        @if (ViewData["Action"]?.ToString() == "EditConsumption")
+        {
+            <div class="text-center mt-3">
+                <form action="@Url.Action("DeleteConsumption", "Energy", new { id = Model.Id })" method="post" onsubmit="return confirm('Are you sure you want to delete the record?');">
+                    <button type="submit" class="btn btn-danger w-100">Delete record</button>
+                </form>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var residentialFields = document.getElementById('residentialFields');
+            var industrialFields = document.getElementById('industrialFields');
+
+            var userBuildingType = '@(Model?.BuildingType ?? "Residential")';
+
+            function toggleFields() {
+                residentialFields.style.display = (userBuildingType === 'Residential') ? 'block' : 'none';
+                industrialFields.style.display = (userBuildingType === 'Industrial') ? 'block' : 'none';
+            }
+
+            toggleFields();
+        });
+    </script>
+}

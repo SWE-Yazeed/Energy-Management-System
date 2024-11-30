@@ -1,0 +1,43 @@
+﻿
+.account-logo {
+    text-align: left; 
+    position: absolute; 
+    top: 2%; 
+    left: 2%; 
+    z-index: 2; 
+}
+
+    .account-logo img {
+        max-width: 500px; 
+        height: auto;
+       
+    }
+
+.account-container {
+    background-image: url('../images/bg5.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    width: 100vw; 
+    height: 100vh; 
+    margin: 0; 
+    padding: 0; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    position: relative;
+    overflow: hidden; 
+}
+
+.account-box {
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 100%;
+    z-index: 1; 
+    position: relative; 
+    margin: 0; 
+}
+

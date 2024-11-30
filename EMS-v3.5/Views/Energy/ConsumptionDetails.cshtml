@@ -1,0 +1,15 @@
+﻿@model EMS_v2._2.Models.EnergyConsumption
+
+<div class="container mt-5">
+    <h2 class="text-center">Energy Consumption Details</h2>
+    <div class="card p-4 mt-4">
+        <h5>Date: @Model.Date.ToShortDateString()</h5>
+        <h5>Energy Used: @Model.EnergyUsed kWh</h5>
+        <h5>Location: @Model.Location</h5>
+        <h5>Building Type: @Model.BuildingType</h5>
+        <h5>Room Count: @Model.RoomCount</h5>
+        <div class="text-center mt-3">
+            <a href="@Url.Action("Dashboard", "Energy")" class="btn btn-primary">Back to Dashboard</a>
+        </div>
+    </div>
+</div>

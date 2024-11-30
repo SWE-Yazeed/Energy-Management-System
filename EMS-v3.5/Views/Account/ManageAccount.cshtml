@@ -1,0 +1,70 @@
+﻿@model EMS_v2._2.ViewModels.ManageAccountViewModel
+
+@{
+    ViewData["Title"] = "Manage Account";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+
+<div class="account-logo">
+    <img src="~/images/LOGO2 HD.png" alt="EnergyWise Logo">
+</div>
+
+<div class="account-container">
+    <div class="account-box">
+        <h2 class="text-center mb-4">Manage Account</h2>
+        <form asp-action="ManageAccount" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+         
+            <div class="mb-3">
+                <label asp-for="FullName" class="form-label">Full Name</label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label">Email</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="BuildingType" class="form-label">Building Type</label>
+                <select asp-for="BuildingType" class="form-control">
+                    <option value="">-- Select Building Type --</option>
+                    <option value="Residential">Residential</option>
+                    <option value="Industrial">Industrial</option>
+                </select>
+                <span asp-validation-for="BuildingType" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="CurrentPassword" class="form-label">Current Password</label>
+                <input type="password" asp-for="CurrentPassword" class="form-control" />
+                <span asp-validation-for="CurrentPassword" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="NewPassword" class="form-label">New Password</label>
+                <input type="password" asp-for="NewPassword" class="form-control" />
+                <span asp-validation-for="NewPassword" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ConfirmPassword" class="form-label">Confirm New Password</label>
+                <input type="password" asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-success w-100 p-2 mt-3">Update Account</button>
+            <div class="text-center">
+                <a asp-controller="Energy" asp-action="Dashboard" class="text-decoration-none mt-3">Back to dashboard</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
+    }
+}
