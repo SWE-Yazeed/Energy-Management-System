@@ -30,10 +30,10 @@ With the global focus on sustainability, managing energy consumption has become 
 This project uses the following technologies:
 
 <p>
-  <img src="![asp net](https://github.com/user-attachments/assets/b5a6755a-e7a8-4797-84a9-58c4693e6d5c)" width="100">
-  <img src="![Identity](https://github.com/user-attachments/assets/a194c52f-089a-4cd9-b5b7-6304bcc7bb14)" width="100">
-  <img src="![Mldotnet](https://github.com/user-attachments/assets/e76753b9-5df2-4150-a96a-d3d91ca14e64)" width="100">
-  <img src="![SSMS](https://github.com/user-attachments/assets/5ebb0f4f-2b48-4a74-b5fa-5a4fc32d5afc)" width="100">
+  <img src="https://github.com/user-attachments/assets/b5a6755a-e7a8-4797-84a9-58c4693e6d5c" alt="ASP.NET" width="100">
+  <img src="https://github.com/user-attachments/assets/a194c52f-089a-4cd9-b5b7-6304bcc7bb14" alt="Identity" width="100">
+  <img src="https://github.com/user-attachments/assets/e76753b9-5df2-4150-a96a-d3d91ca14e64" alt="ML.NET" width="100">
+  <img src="https://github.com/user-attachments/assets/5ebb0f4f-2b48-4a74-b5fa-5a4fc32d5afc" alt="SSMS" width="100">
 </p>
 
 
