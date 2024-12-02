@@ -46,7 +46,7 @@ This project uses the following technologies:
 
    
 2. **Dashboard Page**
- ![Ind - Ya@email com -Dashboard](https://github.com/user-attachments/assets/a9ae2851-afe2-494b-9c8b-1df4c4de9081)
+![Res- Ab@email com -Dashboard](https://github.com/user-attachments/assets/9a3dde7b-3869-4553-95a3-25eb3638aa15)
 
 
   
